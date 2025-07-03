@@ -17,14 +17,16 @@ const db = require("./models"); // This imports models/index.js which exports { 
 const app = express();
 app.use(express.json());
 
-// Enable CORS for all routes
-app.use(
-  cors({
-    origin: "http://localhost:3000", // Your frontend URL
+const allowedOrigins = [
+  "http://localhost:3000", // for local testing
+  "https://jobtrackerapplicationapp.netlify.app" // your deployed frontend
+];
 
-    credentials: true,
-  })
-);
+// Enable CORS for all routes
+app.use(cors({
+  origin: allowedOrigins,
+  credentials: true
+}));
 app.use("/auth", authRoutes);
 app.use("/applications", jobApplicationRoutes);
 app.use("/reminders", reminderRoutes);
