@@ -57,7 +57,7 @@ app.use("/reminders", reminderRoutes);
 app.use("/profile", profileRoutes);
 app.use("/companies", companyRoutes);
 app.use("/dashboard", dashboardRoutes);
-app.use("/applications", noteRoutes); // noteRoutes should ideally be nested in noteRoutes file
+app.use("/applications/:id/notes", noteRoutes); // noteRoutes should ideally be nested in noteRoutes file
 app.use("/saved-jobs", savedJobRoutes);
 
 // 👇 Port config for local + Render deployment
